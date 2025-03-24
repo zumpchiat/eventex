@@ -1,4 +1,6 @@
 .env
 .idea
 .wttd
-*.sqllite
+*.sqlite3
+*pyc
+__pycache__

@@ -1,0 +1,22 @@
+databases:
+  - name: eventexdb
+    plan: free
+    databaseName: eventex
+    user: eventex
+
+services:
+  - type: web
+    plan: free
+    name: eventex
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn eventex.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: eventexdb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
