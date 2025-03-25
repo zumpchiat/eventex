@@ -1,0 +1,16 @@
+
+
+Olá, Caro amigo!!
+
+Obrigado por realizar sua inscrição
+
+Nome: {{ name }}
+CPF: {{ cpf }}
+EMAIL: {{ email }}
+TELEFONE: {{ phone }}
+
+Em até 48 horas úteis, entraremos em contato.
+
+Att,
+Site
+
