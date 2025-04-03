@@ -10,6 +10,8 @@ python manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
 python manage.py migrate
+
+# For First execution create Environment Variables CREATE_SUPERUSER with TRUE and Set PASSWORD in DJANGO ADMIN
 if [[ $CREATE_SUPERUSER ]];
 then
   #python manage.py createsuperuser --noinput

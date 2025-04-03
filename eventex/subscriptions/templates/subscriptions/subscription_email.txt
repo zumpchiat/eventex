@@ -4,10 +4,10 @@ Olá, Caro amigo!!
 
 Obrigado por realizar sua inscrição
 
-Nome: {{ name }}
-CPF: {{ cpf }}
-EMAIL: {{ email }}
-TELEFONE: {{ phone }}
+Nome: {{ subscription.name }}
+CPF: {{ subscription.cpf }}
+EMAIL: {{ subscription.email }}
+TELEFONE: {{ subscription.phone }}
 
 Em até 48 horas úteis, entraremos em contato.
 
