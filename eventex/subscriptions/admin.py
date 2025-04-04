@@ -3,10 +3,10 @@ from eventex.subscriptions.models import Subscription
 from django.utils.timezone import now
 
 class SubscriptionModelAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'cpf', 'phone', 'create_at','subscribe_today')
+    list_display = ('name', 'email', 'cpf', 'phone', 'create_at','subscribe_today', 'paid')
     date_hierarchy = 'create_at'
     search_fields = ('name', 'email', 'cpf',)
-    list_filter = ('create_at',)
+    list_filter = ('paid', 'create_at')
 
     def subscribe_today(self, obj):
         return obj.create_at == now().date()
