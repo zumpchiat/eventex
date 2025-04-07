@@ -25,6 +25,12 @@ class SubuscptionFormTest(TestCase):
         exception = errors_list[0]
         self.assertEqual(code, exception.code)
 
+    def test_name_must_be_capitalize(self):
+        """Name must be capitalize."""
+
+        form = self.make_validate_form(name='José SILVa')
+        self.assertEqual('José Silva', form.cleaned_data['name'])
+
     def assertFormErrorMessage(self, form, field, msg):
         errors = form.errors
         errors_list = errors[field]
