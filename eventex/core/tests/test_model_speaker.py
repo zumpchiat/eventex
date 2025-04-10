@@ -1,5 +1,8 @@
+from dataclasses import field
+
 from django.test import TestCase
 from eventex.core.models import Speaker
+
 
 class SpeakerModelTest(TestCase):
     def test_create(self):
@@ -12,3 +15,11 @@ class SpeakerModelTest(TestCase):
         )
 
         self.assertTrue(Speaker.objects.exists())
+
+    def test_description_can_be_blank(self):
+        field = Speaker._meta.get_field('description')
+        self.assertTrue(field.blank)
+
+    def test_website_can_be_blank(self):
+        field = Speaker._meta.get_field('website')
+        self.assertTrue(field.blank)
