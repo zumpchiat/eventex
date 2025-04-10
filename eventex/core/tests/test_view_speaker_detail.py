@@ -1,11 +1,11 @@
-from importlib.resources import contents
+from django.shortcuts import resolve_url as r
 
 from django.test import TestCase
 
 
 class SpeakerDetailGet(TestCase):
     def setUp(self):
-        self.response = self.client.get('/palestrantes/grace-hopper/')
+        self.response = self.client.get(r('speaker_detail', slug='grace-hopper'))
 
     def test_get(self):
         """Get should return  status code 200"""
@@ -18,7 +18,7 @@ class SpeakerDetailGet(TestCase):
     def test_html(self):
         contents = [
             'Grace Hopper',
-            'Programadora e almirente'
+            'Programadora e almirante'
         ]
 
         for expected in contents:

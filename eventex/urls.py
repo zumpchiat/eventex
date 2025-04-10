@@ -23,6 +23,6 @@ urlpatterns = [
 
     path('inscricao/', include('eventex.subscriptions.urls')),
     path('', home, name='home'),
-    path('palestrantes/<slug:slug>/', speaker_detail),
+    path('palestrantes/<slug:slug>/', speaker_detail, name='speaker_detail'),
     path('admin/', admin.site.urls),
 ]
