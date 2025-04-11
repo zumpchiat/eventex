@@ -12,16 +12,14 @@ class ContactModelTest(TestCase):
         )
 
     def test_create(self):
-        contact = Contact.objects.create(speaker=self.speaker,kind=Contact.EMAIL,
+        contact = Contact.objects.create(speaker=self.speaker, kind=Contact.EMAIL,
                                          value='contato@bol.com')
         self.assertTrue(Contact.objects.exists())
 
     def test_phone(self):
         contact = Contact(speaker=self.speaker, kind=Contact.PHONE,
-                                         value='21993456677')
-
+                          value='21993456677')
 
     def test_choices(self):
         contact = Contact(speaker=self.speaker, kind='A', value='B')
         self.assertRaises(ValidationError, contact.full_clean)
-
