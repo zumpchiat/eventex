@@ -57,3 +57,11 @@ class Talk(models.Model):
 
     def __str__(self):
         return self.title
+
+class Course(Talk):
+    slots = models.IntegerField()
+
+    objects = PeriodManager()
+    class Meta:
+        verbose_name = 'curso'
+        verbose_name_plural = 'cursos'

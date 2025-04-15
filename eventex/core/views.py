@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from eventex.core.models import Speaker, Talk
+from eventex.core.models import Speaker, Talk, Course
 
 
 # Create your views here.
@@ -16,9 +16,12 @@ def speaker_detail(request, slug):
 
 
 def talk_list(request):
+    speaker = Speaker(name='Guido Russem', slug='guido-russem')
+    courses = Course.objects.all()
     context = {
 
         'morning_talks': Talk.objects.at_morning(),
-        'afternoon_talks': Talk.objects.at_afternoon()
+        'afternoon_talks': Talk.objects.at_afternoon(),
+        'courses': courses
     }
     return render(request, 'core/talk_list.html', context)
