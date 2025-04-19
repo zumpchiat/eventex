@@ -52,6 +52,7 @@ class Talk(models.Model):
     objects = PeriodManager()
 
     class Meta:
+        ordering = ['start']
         verbose_name = 'palestra'
         verbose_name_plural = 'palestras'
 
